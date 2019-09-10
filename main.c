@@ -26,7 +26,7 @@ int main(){
         matrix[posI][posJ]= '@';
         printMatrix(matrix);
         matrix[posI][posJ]= ' ';
-        if (posI<ROWS-2) posI++;
+        
         
 
     } 
