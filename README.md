@@ -1,2 +1,1 @@
-# Tetris-em-C
-Juego Tetris
+# Tetris

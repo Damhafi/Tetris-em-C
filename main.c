@@ -1,38 +1,56 @@
 #include "tetris.h"
 #include "display.h"
 
- /*Parte principal do progrma, responsavel por iniciar e
- chamar as funções auxiliares*/
+
+//Função principal
 
 int main(){
     char matrix[ROWS][COLUMNS];
     int posI, posJ;
-    
+    int keypressed=0;
 
-    posI= 1; //linha
-    posJ= COLUMNS/2;
-
-    //inicializando a atriz
-    init (matrix); 
+    //posicao inicial do personagem
+    posI = 1;
+    posJ = COLUMNS/2;
+    //inicializando matriz
+    init(matrix);
 
     //apagar o cursor da tela
     ShowConsoleCursor(0);
-    system ("cls");
+    system("cls");
 
-
-    while (1) {
+    while(keypressed != ESC){
         gotoxy(0,0);
-        
-        matrix[posI][posJ]= '@';
-        printMatrix(matrix);
-        matrix[posI][posJ]= ' ';
-        
-        
 
-    } 
+        matrix[posI][posJ] = '@';
+
+        printMatrix(matrix);
+
+        matrix[posI][posJ] = ' ';
+        
+        if(posI < ROWS-1) posI++;        
+
+        //lendo tecla
+        keypressed=0;
+        if(kbhit()) keypressed = getch();
+        if(keypressed==ARROWS) keypressed = getch();
+
+
+        switch(keypressed){
+            case TECLA_A:
+            case LEFT: 
+                if(posJ > 0) posJ--;//seta da esquerda A
+                break;
+            case TECLA_D:
+            case RIGHT: 
+                if(posJ < (COLUMNS - 1)) posJ++;//seta da direita D
+            break;
+        }
+
+    }
 
     system("pause");
+
     return 0;
 }
-
-
+// . . .
