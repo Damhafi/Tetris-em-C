@@ -9,13 +9,16 @@
 #define ARROWS 224
 #define LEFT 75
 #define RIGHT 77
-#define TECLA_A 97
-#define TECLA_D 100
+#define TECLA_a 97
+#define TECLA_A 65
+#define TECLA_d 100   
+#define TECLA_D 68
+#define TECLA_ESPACO 32
 
 //tipo de orientação
 #define ORIENTACAO_UP 1
-#define ORIENTACAO_DOWN 2
-#define ORIENTACAO_LEFT 3
+#define ORIENTACAO_LEFT 2
+#define ORIENTACAO_DOWN 3
 #define ORIENTACAO_RIGHT 4
 
 //tipo de peça
@@ -43,3 +46,6 @@ void init(char matrix[ROWS][COLUMNS]);
 
 //Mostra o conteúdo principal da matriz na tela
 void printMatrix(char matrix[ROWS][COLUMNS]);
+
+
+void drawBar(char matrix[ROWS][COLUMNS], Bloco barra, int simbolo);
